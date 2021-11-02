@@ -27,6 +27,10 @@ const Form = styled.form`
   width: 450px;
   margin: 0 auto;
   position: relative;
+
+  @media (max-width: 800px) {
+    width: 300px;
+  }
 `;
 
 const Input = styled.input`
@@ -48,6 +52,11 @@ const Input = styled.input`
     outline: none;
     border: 1px solid #ff9f1a;
   }
+  @media (max-width: 800px) {
+    width: 100%;
+    font-size: 14px;
+    padding: 0 30px;
+  }
 `;
 
 const Icon = styled.i`
@@ -56,6 +65,11 @@ const Icon = styled.i`
   left: 10px;
   font-size: 20px;
   color: #333;
+
+  @media (max-width: 800px) {
+    top: 13px;
+    font-size: 15px;
+  }
 `;
 
 const Click = styled.button`
@@ -73,4 +87,9 @@ const Click = styled.button`
   letter-spacing: 2px;
   font-weight: 500;
   border-radius: 8px;
+
+  @media (max-width: 800px) {
+    font-size: 0.75rem;
+    width: 80px;
+  }
 `;

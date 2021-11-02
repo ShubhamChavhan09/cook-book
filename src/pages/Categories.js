@@ -49,6 +49,16 @@ const Container = styled.div`
   }
   img {
     width: 250px;
+    @media (max-width: 500px) {
+      width: 180px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 

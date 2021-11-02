@@ -12,6 +12,7 @@ const Navigation = ({ theme, toggleTheme }) => {
         <span style={{ color: "#ff9f1a" }}> S</span>
         earch
       </h1>
+      <Toggle theme={theme} toggleTheme={toggleTheme} />
       <ul>
         <li>
           <ListItem exact to="/">
@@ -28,7 +29,6 @@ const Navigation = ({ theme, toggleTheme }) => {
           <ListItem to="/randomMeal">Random</ListItem>
         </li>
       </ul>
-      <Toggle theme={theme} toggleTheme={toggleTheme} />
     </Nav>
   );
 };
@@ -36,6 +36,7 @@ const Navigation = ({ theme, toggleTheme }) => {
 export default Navigation;
 
 const Nav = styled.nav`
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -46,11 +47,19 @@ const Nav = styled.nav`
   ul {
     display: flex;
     list-style-type: none;
+
+    @media (max-width: 500px) {
+      padding: 0;
+    }
   }
   li {
     list-style-type: none;
     position: relative;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    @media (max-width: 500px) {
+      text-align: center;
+    }
   }
   li::after {
     content: "";
@@ -68,15 +77,25 @@ const Nav = styled.nav`
     transform: scale(1);
     transform-origin: left;
   }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+
+    & > h1 {
+      margin: 15px auto;
+    }
+  }
 `;
 
 const ListItem = styled(NavLink)`
   text-decoration: none;
   color: #ff9f1a;
 
-  
   &.active {
     color: #e84118;
     border-bottom: 1px solid currentColor;
-    
+  }
+  @media (max-width: 800px) {
+    font-size: 13px;
+  }
 `;
