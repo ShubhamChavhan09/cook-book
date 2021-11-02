@@ -6,6 +6,7 @@ import Random from "../pages/Random";
 import Favorites from "../pages/Favorites";
 import MealDetail from "../pages/MealDetail";
 import CategoriesItems from "../pages/CategoriesItems";
+import NotFound from "../pages/404";
 
 const Routes = () => {
   return (
@@ -17,6 +18,7 @@ const Routes = () => {
       <Route path="/favorites" exact component={Favorites} />
       <Route path="/randomMeal" exact component={Random} />
       <Route exact path="/:id" component={MealDetail} />
+      <Route component={NotFound} />
     </Switch>
   );
 };
