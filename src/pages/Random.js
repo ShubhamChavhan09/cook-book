@@ -85,36 +85,6 @@ const Random = () => {
   );
 };
 
-{
-  /* <h1>{info.strMeal}</h1>
-      <img src={info.strMealThumb} alt={info.strMeal} />
-      <p>{info.strInstructions}</p>
-      <Wrapper>
-        {ingredients?.map((item, index) => (
-          <Items key={index}>
-            <strong>{item.ingredient} </strong> - <em> {item.quantity}</em>
-          </Items>
-        ))}
-      </Wrapper>
-      {info.strSource === "" ? null : (
-        <Click>
-          <a href={info.strSource} target="_blank" rel="noreferrer">
-            Source Page
-          </a>
-        </Click>
-      )}
-
-      {info.strYoutube === "" ? null : (
-        <Click>
-          <a href={info.strYoutube} target="_blank" rel="noreferrer">
-            Watch video on Youtube
-          </a>
-        </Click>
-      )}
-    </Container>
-  );
-}; */
-}
 export default Random;
 
 const Container = styled.div`
