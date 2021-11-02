@@ -38,7 +38,7 @@ export default Categories;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 50px;
   text-align: center;
   font-size: 12px;
@@ -48,7 +48,7 @@ const Container = styled.div`
     margin: 0;
   }
   img {
-    width: 250px;
+    width: 200px;
     @media (max-width: 500px) {
       width: 180px;
     }
