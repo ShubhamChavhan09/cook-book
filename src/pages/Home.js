@@ -1,21 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SearchMeal from "../components/SearchMeal";
 import styled from "styled-components";
 
 const Home = () => {
   const [meals, setMeals] = useState("");
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const inputRef = useRef("");
 
   useEffect(() => {
     fetchMeal(setMeals);
     //    eslint-disable-next-line
-  }, [setMeals]);
+  }, [query]);
 
   const fetchMeal = async () => {
     setIsLoading(true);
-    await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meals}`)
+    await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.meals);
@@ -29,18 +30,21 @@ const Home = () => {
 
   if (isLoading) return <h1>Loading...</h1>;
 
-  const handleSearch = (e) => {
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    fetchMeal();
+    setQuery(search);
   };
 
   return (
     <Wrapper>
       <SearchMeal
-        handleSearch={handleSearch}
-        meals={meals}
-        setMeals={setMeals}
-        inputRef={inputRef}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        search={search}
       />
       <Container>
         {meals &&

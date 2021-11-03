@@ -48,7 +48,7 @@ const Random = () => {
   return (
     <Container>
       <Click onClick={() => fetchRandom()}>
-        Random Receipe <br />
+        Random Recipe <br />
         <i className="fas fa-random"></i>
       </Click>
       <div>

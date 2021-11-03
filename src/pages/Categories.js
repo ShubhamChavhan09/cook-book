@@ -54,10 +54,13 @@ const Container = styled.div`
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 500px) {
+  @media (max-width: 450px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

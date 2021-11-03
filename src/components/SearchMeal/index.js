@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchMeal = ({ meals, setMeals, handleSearch, inputRef }) => {
+const SearchMeal = ({ handleChange, handleSubmit, search }) => {
   return (
     <Container>
-      <Form onSubmit={handleSearch}>
+      <Form onSubmit={handleSubmit}>
         <Input
-          ref={inputRef}
+          value={search}
           placeholder="Search for food receipe..."
           type="text"
-          onChange={() => setMeals(inputRef.current.value)}
+          onChange={handleChange}
         />
         <Icon className="fas fa-search"></Icon>
-        <Click onSubmit={handleSearch}>Search</Click>
+        <Click>Search</Click>
       </Form>
     </Container>
   );
