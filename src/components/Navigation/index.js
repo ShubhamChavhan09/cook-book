@@ -16,17 +16,17 @@ const Navigation = ({ theme, toggleTheme }) => {
       <ul>
         <li>
           <ListItem exact to="/">
-            Home
+            HOME
           </ListItem>
         </li>
         <li>
-          <ListItem to="/categories">Categories</ListItem>
+          <ListItem to="/categories">CATEGORIES</ListItem>
         </li>
         <li>
-          <ListItem to="/favorites">Favorites</ListItem>
+          <ListItem to="/favorites">FAVORITES</ListItem>
         </li>
         <li>
-          <ListItem to="/randomMeal">Random</ListItem>
+          <ListItem to="/randomMeal">RANDOM</ListItem>
         </li>
       </ul>
     </Nav>
@@ -40,6 +40,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
   h1 {
     margin-right: auto;
   }
@@ -89,7 +90,8 @@ const Nav = styled.nav`
 
 const ListItem = styled(NavLink)`
   text-decoration: none;
-  color: #ff9f1a;
+  font-weight: 400;
+  color: currentColor;
 
   &.active {
     color: #e84118;
