@@ -10,7 +10,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background: ${({ theme }) => theme.body};
     color:${({ theme }) => theme.text};
-    
+    min-width: 98.6vw;
     transition: all 0.5s linear;
 
   
@@ -20,8 +20,8 @@ body{
 export default GlobalStyle;
 
 export const lightTheme = {
-  body: "#F1F3F9",
-  text: " #1B1B1B",
+  body: "#F7F7F7  ",
+  text: " #0D0D0D",
 };
 
 export const darkTheme = {
