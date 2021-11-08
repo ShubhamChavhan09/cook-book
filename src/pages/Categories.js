@@ -49,6 +49,17 @@ const Container = styled.div`
   }
   img {
     width: 200px;
+    height: 150px;
+    border-radius: 50%;
+    outline: 1px solid black;
+    outline-offset: 6px;
+    transition: all 0.1s linear;
+
+    :hover {
+      outline: 1px dashed black;
+      transform: scale(1.03);
+    }
+
     @media (max-width: 500px) {
       width: 180px;
     }
