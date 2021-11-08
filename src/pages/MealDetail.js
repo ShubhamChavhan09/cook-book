@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import FavouriteButton from "../components/FavouriteButton";
 
 const MealDetail = ({ match }) => {
   const [info, setInfo] = useState("");
@@ -47,58 +48,73 @@ const MealDetail = ({ match }) => {
   }
 
   return (
-    <Container>
-      <div>
+    <>
+      <Container>
         <Left>
           <img src={info.strMealThumb} alt={info.strMeal} />
         </Left>
-        <Right>
+
+        <Wrapper>
           <h1>{info.strMeal}</h1>
-          <Wrapper>
+          <FavouriteButton meals={info} />
+          <section>
+            <h3>Ingredients :</h3>
             {ingredients?.map((item, index) => (
               <Items key={index}>
                 <strong>{item.ingredient} </strong> - <em> {item.quantity}</em>
               </Items>
             ))}
-          </Wrapper>
-        </Right>
-      </div>
-      <p>{info.strInstructions}</p>
-      {info.strSource === "" ? null : (
-        <Click>
-          <a href={info.strSource} target="_blank" rel="noreferrer">
-            Source Page
-          </a>
-        </Click>
-      )}
-      {info.strYoutube === "" ? null : (
-        <Click>
-          <a href={info.strYoutube} target="_blank" rel="noreferrer">
-            Watch video on Youtube
-          </a>
-        </Click>
-      )}
-    </Container>
+          </section>
+          <p>{info.strInstructions}</p>
+        </Wrapper>
+      </Container>
+      <FlexRow>
+        {info.strSource === "" ? null : (
+          <Click>
+            <a href={info.strSource} target="_blank" rel="noreferrer">
+              Source Page
+            </a>
+          </Click>
+        )}
+        {info.strYoutube === "" ? null : (
+          <Click>
+            <a href={info.strYoutube} target="_blank" rel="noreferrer">
+              Watch on
+              <i
+                style={{ fontSize: "1rem", color: "red" }}
+                className="fab fa-youtube"
+              ></i>
+            </a>
+          </Click>
+        )}
+      </FlexRow>
+    </>
   );
 };
 
 export default MealDetail;
 
 const Container = styled.div`
+padding : 40px 0;
 display flex;
+min-height: 90vh;
 justify-content: center;
 align-items: center;
-flex-direction: column;
-font-size: 15px;
-max-width: 80%;
-margin: 0 auto;
+font-size: 13px;
+
+h1{
+  font-size: 4rem;
+  letter-spacing: 1px;
+}
+
 @media (max-width: 800px) {
-  max-width: 90%;
+  max-width: 90%
 }
 
 img{
-  width:400px;
-  border-radius: 10px;
+  width:80%;
+  box-shadow: 0 0 10px 10px;
+  aspect-ratio: 1 / 1;
 
   @media (max-width: 800px) {
     width: 95%
@@ -106,33 +122,23 @@ img{
 }
 p{
   margin: 30px 0;
+  line-height:normal;
 
   @media (max-width: 800px) {
     font-size: 15px;
   }
 }
 
-&> div {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
-  
-}
 `;
 
 const Items = styled.div`
   display: flex;
-  border: 1px solid #ff9f1a;
+  border: 2px solid #ff9f1a;
   border-radius: 10px;
   padding: 3px 10px;
   margin: 5px;
   letter-spacing: 1px;
-  font-size: 14px;
+  font-size: 11px;
 
   @media (max-width: 800px) {
     font-size: 12px;
@@ -140,9 +146,34 @@ const Items = styled.div`
 `;
 
 const Wrapper = styled.div`
-  max-width: 800px;
+  min-height: 60vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1.6;
+  align-self: center;
+  padding-right: 40px;
+
+  @media (max-width: 800px) {
+    padding: 0;
+  }
+
+  section {
+    padding: 12px;
+    border: 1px solid black;
+    outline: 1px solid black;
+    outline-offset: 2px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    h3 {
+      margin: 0;
+    }
+  }
+  h1 {
+    margin: 0;
+    text-align: left;
+  }
 `;
 const Click = styled.button`
   min-height: 30px;
@@ -161,17 +192,23 @@ const Click = styled.button`
     text-decoration: none;
     color: #333;
   }
-  &:focus {
-    transform: scale(0.99);
+`;
+
+const Left = styled.div`
+  min-height: 60vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  h1 {
+    margin: 0;
   }
 `;
 
-const Left = styled.div``;
-
-const Right = styled.div`
-  padding: 0 20px;
-
-  @media (max-width: 800px) {
-    padding: 0;
-  }
+const FlexRow = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
