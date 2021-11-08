@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router";
 import Home from "../pages/Home";
 import Categories from "../pages/Categories";
@@ -7,8 +7,16 @@ import Favorites from "../pages/Favorites";
 import MealDetail from "../pages/MealDetail";
 import CategoriesItems from "../pages/CategoriesItems";
 import NotFound from "../pages/404";
+import { useFavourites } from "../hooks/useFavourites";
 
 const Routes = () => {
+  const { getFavourites } = useFavourites();
+
+  useEffect(() => {
+    getFavourites();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <Switch>
       <Route path="/" exact component={Home} />
