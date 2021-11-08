@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import FavouriteButton from "../components/FavouriteButton";
 
 const Random = () => {
   const [info, setInfo] = useState("");
@@ -48,8 +49,8 @@ const Random = () => {
   return (
     <Container>
       <Click onClick={() => fetchRandom()}>
-        Random Recipe <br />
-        <i className="fas fa-random"></i>
+        Random Recipe
+        <i style={{ margin: " 0 10px" }} className="fas fa-random"></i>
       </Click>
       <div>
         <Left>
@@ -57,6 +58,7 @@ const Random = () => {
         </Left>
         <Right>
           <h1>{info.strMeal}</h1>
+          <FavouriteButton meals={info} />
           <Wrapper>
             {ingredients?.map((item, index) => (
               <Items key={index}>
@@ -95,6 +97,7 @@ flex-direction: column;
 font-size: 15px;
 max-width: 80%;
 margin: 0 auto;
+padding : 40px 0;
 @media (max-width: 800px) {
   max-width: 90%;
 }
