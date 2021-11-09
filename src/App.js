@@ -3,8 +3,10 @@ import Navigation from "./components/Navigation";
 import Routes from "./routes";
 import { BrowserRouter } from "react-router-dom";
 import GlobalStyle, { lightTheme, darkTheme } from "./theme/GlobalStyle";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { UseDarkMode } from "./theme/UseDarkMode";
+import { StoreProvider } from "./context";
+import { reducer, initialState } from "./reducers";
 
 const App = () => {
   const [theme, toggleTheme] = UseDarkMode();
@@ -12,15 +14,25 @@ const App = () => {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (
-    <ThemeProvider theme={themeMode}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Navigation theme={theme} toggleTheme={toggleTheme} />
-        {/* <Toggle theme={theme} toggleTheme={toggleTheme} /> */}
-        <Routes />
-      </BrowserRouter>
-    </ThemeProvider>
+    <Container>
+      <ThemeProvider theme={themeMode}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <StoreProvider reducer={reducer} initialState={initialState}>
+            <Navigation theme={theme} toggleTheme={toggleTheme} />
+            <Routes />
+          </StoreProvider>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Container>
   );
 };
 
 export default App;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+`;
