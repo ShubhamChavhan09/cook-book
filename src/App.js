@@ -34,5 +34,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
+  transition: all 0.5s ease-in;
+  positiion: relative;
 `;
