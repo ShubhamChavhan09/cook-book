@@ -48,20 +48,19 @@ const Container = styled.div`
     margin: 0;
   }
   img {
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    aspect-ratio: 1/1;
     border-radius: 50%;
-    outline: 1px solid black;
+    outline: 1px solid;
     outline-offset: 6px;
     transition: all 0.1s linear;
 
     :hover {
-      outline: 1px dashed black;
+      outline: 1px dashed;
       transform: scale(1.03);
     }
 
     @media (max-width: 500px) {
-      width: 180px;
     }
   }
 
