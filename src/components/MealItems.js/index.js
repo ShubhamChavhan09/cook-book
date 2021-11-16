@@ -10,7 +10,7 @@ const MealItems = ({ meals }) => {
           <Card key={index}>
             <List to={`/${meal.idMeal}`}>
               <img src={meal.strMealThumb} alt={meal.strMeal} />
-              <h3>{meal.strMeal}</h3>
+              <h4>{meal.strMeal}</h4>
             </List>
           </Card>
         ))}
@@ -21,48 +21,46 @@ const MealItems = ({ meals }) => {
 export default MealItems;
 
 const Container = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 50px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 80px;
   text-align: center;
-  padding: 40px 50px;
+  padding: 40px 0;
+  margin: 0 auto;
 
   img {
-    width: 220px;
-    aspect-ratio: 1 / 1;
+    width: 100%;
 
     @media (max-width: 500px) {
-      width: 250px;
+      width: 100%;
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: 1104px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 900px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: 400px) {
-    grid-template-columns: repeat(1, 1fr);
+  @media (max-width: 500px) {
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
 const Card = styled.div`
-  width: 220px;
+  width: 150px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   position: relative;
-
+  background: #ffffff;
+  box-shadow: 0 0 10px #130f40;
   @media (max-width: 500px) {
-    width: 250px;
-  }
-  h3 {
-    background: white;
-    position: absolute;
-    bottom: -10px;
-    right: 0;
-    margin: 0;
-    border: 1px solid #ff9f1a;
-  }
-  h3: hover {
-    transform: scale(0.99);
+    width: 100%;
   }
 `;
 
@@ -71,7 +69,13 @@ const List = styled(Link)`
   color: #ff9f1a;
 
   :hover img {
-    filter: brightness(0.8);
+    filter: brightness(0.75);
     transition: all 200ms ease;
   }
+  :hover h3 {
+    transform: scale(1.3);
+    transition: all 200ms linear;
+  }
 `;
+
+//linear-gradient(to right, red, rgba(0, 0, 0, 0.8))
