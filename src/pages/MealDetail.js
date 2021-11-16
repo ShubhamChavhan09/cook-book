@@ -194,7 +194,7 @@ const Left = styled.div`
   min-height: 40vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: 20px;
 `;
