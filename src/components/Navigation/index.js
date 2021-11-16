@@ -1,34 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Toggle from "../Toggle";
 
 const Navigation = ({ theme, toggleTheme }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Nav>
-      <h1>
-        <span style={{ color: "#ff9f1a" }}> M</span>
-        eal
-        <span style={{ color: "#ff9f1a" }}> S</span>
-        earch
-      </h1>
+      <Logo exact to="/">
+        <span style={{ color: "#ff9f1a" }}> C</span>
+        ook
+        <span style={{ color: "#ff9f1a" }}> B</span>
+        ook
+      </Logo>
       <Toggle theme={theme} toggleTheme={toggleTheme} />
-      <ul>
-        <li>
-          <ListItem exact to="/">
-            HOME
-          </ListItem>
-        </li>
-        <li>
-          <ListItem to="/categories">CATEGORIES</ListItem>
-        </li>
-        <li>
-          <ListItem to="/favorites">FAVORITES</ListItem>
-        </li>
-        <li>
-          <ListItem to="/randomMeal">RANDOM</ListItem>
-        </li>
-      </ul>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? (
+          <i className="fas fa-times"></i>
+        ) : (
+          <i className="fas fa-bars"></i>
+        )}
+      </Hamburger>
+
+      <Menu onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
+        <MenuLink exact to="/">
+          HOME
+        </MenuLink>
+
+        <MenuLink to="/categories">CATEGORIES</MenuLink>
+
+        <MenuLink to="/favorites">FAVORITES</MenuLink>
+
+        <MenuLink to="/randomMeal">RANDOM</MenuLink>
+      </Menu>
     </Nav>
   );
 };
@@ -36,68 +40,83 @@ const Navigation = ({ theme, toggleTheme }) => {
 export default Navigation;
 
 const Nav = styled.nav`
-  width: 100%;
+  padding: 0 2rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  flex-wrap: wrap;
+  z-index: 10;
+  background: linear-gradient(to right, #1e272e, #ecf0f1, #1e272e);
+`;
 
-  h1 {
-    margin-right: auto;
-  }
+const MenuLink = styled(NavLink)`
+  margin: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 0.9rem;
+  position: relative;
+  text-shadow: 3px 3px 20px #ecf0f1, -2px 1px 30px #ffffff;
 
-  ul {
-    display: flex;
-    list-style-type: none;
-
-    @media (max-width: 500px) {
-      padding: 0;
-    }
-  }
-  li {
-    list-style-type: none;
-    position: relative;
-    margin-right: 10px;
-    margin-left: 10px;
-    @media (max-width: 500px) {
-      text-align: center;
-    }
-  }
-  li::after {
+  &::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
     background: currentColor;
-    height: 1px;
+    height: 2px;
     transform: scale(0);
-    transform-origin: right;
+    transform-origin: left;
     transition: transform 0.5s ease-in;
   }
-  li:hover::after {
+  &:hover::after {
     transform: scale(1);
     transform-origin: left;
   }
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-
-    & > h1 {
-      margin: 15px auto;
-    }
+  &.active {
+    font-weight: bold;
   }
 `;
 
-const ListItem = styled(NavLink)`
+const Logo = styled(NavLink)`
+  padding: 1rem 0;
+  transition: all 0.3s ease-in;
+  color: #7f8c8d;
   text-decoration: none;
-  font-weight: 400;
-  color: currentColor;
+  font-weight: 800;
+  font-size: 1.7rem;
+  display: flex;
+`;
 
-  &.active {
-    color: #e84118;
-    border-bottom: 1px solid currentColor;
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  @media (max-width: 768px) {
+    overflow: hidden;
+    flex-direction: column;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.3s ease-in;
+    width: 100%;
   }
-  @media (max-width: 800px) {
-    font-size: 13px;
+`;
+
+const Hamburger = styled.button`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  @media (max-width: 768px) {
+    display: flex;
   }
 `;
