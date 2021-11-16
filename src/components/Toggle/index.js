@@ -3,9 +3,15 @@ import React from "react";
 const Toggle = ({ theme, toggleTheme }) => {
   const icon =
     theme === "light" ? (
-      <i className="fas fa-moon"></i>
+      <p>
+        DARK
+        <i className="fas fa-moon"></i>
+      </p>
     ) : (
-      <i className="fas fa-sun"></i>
+      <p>
+        LIGHT
+        <i className="fas fa-sun"></i>
+      </p>
     );
 
   return <div onClick={toggleTheme}>{icon}</div>;
