@@ -37,6 +37,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setQuery(search);
+    setSearch("");
   };
 
   return (
@@ -47,7 +48,10 @@ const Home = () => {
         search={search}
       />
       {meals ? (
-        <MealItems meals={meals} />
+        <div>
+          {query ? ` Results for '${query}'` : ""}
+          <MealItems meals={meals} />
+        </div>
       ) : (
         <div>No results for "{query}"</div>
       )}
