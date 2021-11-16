@@ -25,17 +25,6 @@ const CategoriesItems = ({ match }) => {
     <>
       <MealItems meals={items} />
     </>
-
-    // <Container>
-    //   {Object.values(items).map((item) => (
-    //     <Card key={item.idMeal}>
-    //       <List to={`/categories/${match.params.id}/${item.idMeal}`}>
-    //         <img src={item.strMealThumb} alt={item.strMeal} />
-    //         <h3>{item.strMeal}</h3>
-    //       </List>
-    //     </Card>
-    //   ))}
-    // </Container>
   );
 };
 
