@@ -7,7 +7,7 @@ const SearchMeal = ({ handleChange, handleSubmit, search }) => {
       <Form onSubmit={handleSubmit}>
         <Input
           value={search}
-          placeholder="Search for food receipe..."
+          placeholder="Search for a dish"
           type="text"
           onChange={handleChange}
         />
