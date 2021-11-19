@@ -30,7 +30,7 @@ const Navigation = ({ theme, toggleTheme }) => {
               <ListItem to="/favourites">Favourites</ListItem>
             </li>
             <li>
-              <ListItem to="/random">Random</ListItem>
+              <ListItem to="/randomMeal">Random</ListItem>
             </li>
           </ul>
         </nav>
@@ -43,7 +43,7 @@ const Navigation = ({ theme, toggleTheme }) => {
 
         <MenuLink to="/categories">CATEGORIES</MenuLink>
 
-        <MenuLink to="/favorites">FAVORITES</MenuLink>
+        <MenuLink to="/favourites">FAVOURITES</MenuLink>
 
         <MenuLink to="/randomMeal">RANDOM</MenuLink>
       </Right>
@@ -62,7 +62,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #1e272e, #ecf0f1);
+  // background: linear-gradient(to right, #1e272e, #ecf0f1);
 `;
 
 const MenuLink = styled(NavLink)`
@@ -70,10 +70,10 @@ const MenuLink = styled(NavLink)`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: black;
+  color: #888;
   font-size: 0.9rem;
   position: relative;
-  text-shadow: 3px 3px 20px #ecf0f1, -2px 1px 30px #ffffff;
+  // text-shadow: 3px 3px 20px #ecf0f1, -2px 1px 30px #ffffff;
 
   &::after {
     content: "";
