@@ -14,6 +14,24 @@ body{
     width: 100vw;
     transition: all 0.2s linear;
 }
+
+.nav-menu {
+  background-color: rgb(0,0,0,0.9);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition:all 0.5s ease-in-out;
+}
+
+.nav-menu.active {
+  left: 0;
+  
+}
 `;
 
 export default GlobalStyle;
