@@ -35,7 +35,7 @@ const Form = styled.form`
 const Input = styled.input`
   width: 100%;
   height: 40px;
-  padding: 0 40px 0 60px;
+  padding: 0 4rem;
   outline: none;
   font-size: 1rem;
   border-radius: 8px;
@@ -53,8 +53,8 @@ const Input = styled.input`
   }
   @media (max-width: 800px) {
     width: 100%;
-    font-size: 14px;
-    padding: 0 30px;
+    font-size: 1rem;
+    padding: 0 4rem;
   }
 `;
 
