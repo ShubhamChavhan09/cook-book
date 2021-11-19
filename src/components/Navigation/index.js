@@ -115,11 +115,18 @@ const Right = styled.div`
 const ListItem = styled(NavLink)`
   margin: 0 40px;
   text-decoration: none;
+  color: currentColor;
 `;
 
 const SideBar = styled.div`
   z-index: 1;
   display: none;
+  li {
+    list-style-type: none;
+    font-size: 2rem;
+    margin: 50px 0;
+  }
+
   @media (max-width: 800px) {
     display: flex;
   }
