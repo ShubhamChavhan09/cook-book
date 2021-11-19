@@ -2,27 +2,44 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Toggle from "../Toggle";
+import { AiOutlineClose } from "react-icons/ai";
+import { FaBars } from "react-icons/fa";
 
 const Navigation = ({ theme, toggleTheme }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
   return (
     <Nav>
-      <Logo exact to="/">
-        <span style={{ color: "#ff9f1a" }}> C</span>
-        ook
-        <span style={{ color: "#ff9f1a" }}> B</span>
-        ook
-      </Logo>
-      <Toggle theme={theme} toggleTheme={toggleTheme} />
-      <Hamburger onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? (
-          <i className="fas fa-times"></i>
-        ) : (
-          <i className="fas fa-bars"></i>
-        )}
-      </Hamburger>
+      <SideBar>
+        <div>
+          <FaBars onClick={showSidebar} />
+        </div>
 
-      <Menu onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
+        {/* styling in GlobalStyle */}
+        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+          <ul onClick={showSidebar}>
+            <AiOutlineClose
+              style={{ position: "absolute", top: "20px", right: "20px" }}
+            />
+
+            <li>
+              <ListItem to="/">Home</ListItem>
+            </li>
+            <li>
+              <ListItem to="/categories">Categories</ListItem>
+            </li>
+            <li>
+              <ListItem to="/favourites">Favourites</ListItem>
+            </li>
+            <li>
+              <ListItem to="/random">Random</ListItem>
+            </li>
+          </ul>
+        </nav>
+      </SideBar>
+
+      <Right>
         <MenuLink exact to="/">
           HOME
         </MenuLink>
@@ -32,7 +49,11 @@ const Navigation = ({ theme, toggleTheme }) => {
         <MenuLink to="/favorites">FAVORITES</MenuLink>
 
         <MenuLink to="/randomMeal">RANDOM</MenuLink>
-      </Menu>
+      </Right>
+      <Left>
+        Cook Book
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+      </Left>
     </Nav>
   );
 };
@@ -44,13 +65,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  top: 0;
-  right: 0;
-  left: 0;
-  flex-wrap: wrap;
-  z-index: 10;
-  background: linear-gradient(to right, #1e272e, #ecf0f1, #1e272e);
+  background: linear-gradient(to right, #1e272e, #ecf0f1);
 `;
 
 const MenuLink = styled(NavLink)`
@@ -84,39 +99,28 @@ const MenuLink = styled(NavLink)`
   }
 `;
 
-const Logo = styled(NavLink)`
-  padding: 1rem 0;
-  transition: all 0.3s ease-in;
-  color: #7f8c8d;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.7rem;
+const Left = styled.div`
+  font-size: 1rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Menu = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  @media (max-width: 768px) {
-    overflow: hidden;
-    flex-direction: column;
-    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
-    transition: max-height 0.3s ease-in;
-    width: 100%;
+const Right = styled.div`
+  @media (max-width: 800px) {
+    display: none;
   }
 `;
 
-const Hamburger = styled.button`
+const ListItem = styled(NavLink)`
+  margin: 0 40px;
+  text-decoration: none;
+`;
+
+const SideBar = styled.div`
+  z-index: 1;
   display: none;
-  flex-direction: column;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     display: flex;
   }
 `;
