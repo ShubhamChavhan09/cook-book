@@ -12,7 +12,6 @@ const SearchMeal = ({ handleChange, handleSubmit, search }) => {
           onChange={handleChange}
         />
         <Icon className="fas fa-search"></Icon>
-        <Click>Search</Click>
       </Form>
     </Container>
   );
@@ -36,7 +35,7 @@ const Form = styled.form`
 const Input = styled.input`
   width: 100%;
   height: 40px;
-  padding: 0 40px;
+  padding: 0 40px 0 60px;
   outline: none;
   font-size: 1rem;
   border-radius: 8px;
@@ -62,7 +61,7 @@ const Input = styled.input`
 const Icon = styled.i`
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: 20px;
   font-size: 20px;
   color: #333;
 
