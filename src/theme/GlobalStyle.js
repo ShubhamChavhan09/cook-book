@@ -11,7 +11,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background: ${({ theme }) => theme.body};
     color:${({ theme }) => theme.text};
-    width: 98.5vw;
+    width: 100vw;
     transition: all 0.2s linear;
 }
 `;
