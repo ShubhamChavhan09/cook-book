@@ -57,9 +57,9 @@ const Random = () => {
           <img src={info.strMealThumb} alt={info.strMeal} />
         </Left>
         <Wrapper>
-          <h1>
+          <h3>
             {info.strMeal} <FavouriteButton meals={info} />
-          </h1>
+          </h3>
           <p>{info.strInstructions}</p>
           <Button>
             {info.strSource === "" ? null : (
@@ -85,7 +85,7 @@ const Random = () => {
 
         <FlexRow>
           <section>
-            <h3>INGREDIENTS : {ingredients.length}</h3>
+            <h4>INGREDIENTS : {ingredients.length}</h4>
             {ingredients?.map((item, index) => (
               <Items key={index}>
                 <strong>{item.ingredient} </strong> - <em> {item.quantity}</em>
@@ -233,8 +233,8 @@ const Container = styled.div`
   font-size: 13px;
   grid-template-columns: 2fr 3fr 1fr;
 
-  h1 {
-    font-size: 4rem;
+  h3 {
+    font-size: 2.2rem;
     letter-spacing: 1px;
   }
 
@@ -284,13 +284,21 @@ const Wrapper = styled.div`
     padding: 0;
   }
 
-  h1 {
+  h2 {
     margin: 0;
     font-weight: 530;
   }
   p {
     font-style: italic;
-  }
+    color: #636e72;
+    margin: 30px 0;
+    font-size: 0.9rem;
+
+    @media (max-width: 500px) {
+      font-size: 11px;
+      margin: 10px 0;
+    }
+
 `;
 const Click = styled.button`
   min-height: 30px;
