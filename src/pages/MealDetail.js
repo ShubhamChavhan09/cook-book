@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import FavouriteButton from "../components/FavouriteButton";
+import { useParams } from "react-router";
 
-const MealDetail = ({ match }) => {
+const MealDetail = () => {
+  const params = useParams();
+
   const [info, setInfo] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -10,7 +13,7 @@ const MealDetail = ({ match }) => {
   useEffect(() => {
     fetchInfo();
     // eslint-disable-next-line
-  }, [setInfo]);
+  }, []);
 
   useEffect(() => {
     createIngredientsArray(info);
@@ -19,11 +22,11 @@ const MealDetail = ({ match }) => {
   const fetchInfo = async () => {
     setIsLoading(true);
     await fetch(
-      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.id}`
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.meals[0]);
+        // console.log(data.meals[0]);
         setInfo(data.meals[0]);
         setIsLoading(false);
       });
@@ -43,7 +46,7 @@ const MealDetail = ({ match }) => {
         break;
       }
     }
-    console.log(ingredientsData);
+    // console.log(ingredientsData);
     setIngredients(ingredientsData);
   }
 
