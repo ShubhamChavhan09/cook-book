@@ -32,17 +32,23 @@ const MealItems = ({ match }) => {
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <Container>
-      {meals &&
-        Object.values(meals).map((meal, index) => (
-          <Card key={index}>
-            <List to={`/${meal.idMeal}`}>
-              <img src={meal.strMealThumb} alt={meal.strMeal} />
-              <h4>{meal.strMeal}</h4>
-            </List>
-          </Card>
-        ))}
-    </Container>
+    <>
+      {meals ? (
+        <Container>
+          {meals &&
+            Object.values(meals).map((meal, index) => (
+              <Card key={index}>
+                <List to={`/${meal.idMeal}`}>
+                  <img src={meal.strMealThumb} alt={meal.strMeal} />
+                  <h4>{meal.strMeal}</h4>
+                </List>
+              </Card>
+            ))}
+        </Container>
+      ) : (
+        <h2>No results for "{match.params.id}"</h2>
+      )}
+    </>
   );
 };
 
@@ -53,10 +59,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 80px;
-  text-align: center;
   padding: 40px 0;
-  margin: 0 auto;
-
   img {
     width: 100%;
 
