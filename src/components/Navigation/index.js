@@ -19,10 +19,7 @@ const Navigation = ({ theme, toggleTheme }) => {
         {/* styling in GlobalStyle */}
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul onClick={showSidebar}>
-            <AiOutlineClose
-              style={{ position: "absolute", top: "20px", right: "20px" }}
-            />
-
+            <AiOutlineClose />
             <li>
               <ListItem to="/">Home</ListItem>
             </li>
@@ -121,10 +118,13 @@ const ListItem = styled(NavLink)`
 const SideBar = styled.div`
   z-index: 1;
   display: none;
+  ul {
+    padding: 0;
+  }
   li {
     list-style-type: none;
-    font-size: 2rem;
-    margin: 50px 0;
+    font-size: 1.1rem;
+    margin: 40px 0;
   }
 
   @media (max-width: 800px) {
