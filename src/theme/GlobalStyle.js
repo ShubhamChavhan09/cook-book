@@ -16,7 +16,7 @@ body{
 }
 
 .nav-menu {
-  background-color:#576574;
+  background: ${({ theme }) => theme.body};
   width: 100vw;
   height: 100vh;
   display: flex;
