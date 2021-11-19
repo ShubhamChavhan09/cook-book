@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import MealItems from "../components/MealItems.js";
+import { useParams } from "react-router";
+import MealLists from "../components/MealLists";
 
 const CategoriesItems = ({ match }) => {
   const [items, setItems] = useState("");
-  console.log(match);
+  const params = useParams();
 
   useEffect(() => {
     fetchItems();
@@ -12,18 +13,30 @@ const CategoriesItems = ({ match }) => {
 
   const fetchItems = async () => {
     await fetch(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${match.params.id}`
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.id}`
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.meals);
+        // console.log(data.meals);
         setItems(data.meals);
       });
   };
 
   return (
     <>
-      <MealItems meals={items} />
+      {/* <MealItems meals={items} /> */}
+      {/* <Container>
+        {items &&
+          Object.values(items).map((meal, index) => (
+            <Card key={index}>
+              <List to={`${meal.strMeal}/${meal.idMeal}`}>
+                <img src={meal.strMealThumb} alt={meal.strMeal} />
+                <h4>{meal.strMeal}</h4>
+              </List>
+            </Card>
+          ))}
+      </Container> */}
+      <MealLists meals={items} />
     </>
   );
 };
