@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
-const SearchMeal = ({ handleChange, handleSubmit, search }) => {
+const SearchMeal = () => {
+  const [search, setSearch] = useState("");
+  let history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push(`/${search}`);
+  };
+
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
         <Input
-          value={search}
           placeholder="Search for a dish"
           type="text"
-          onChange={handleChange}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <Icon className="fas fa-search"></Icon>
       </Form>
