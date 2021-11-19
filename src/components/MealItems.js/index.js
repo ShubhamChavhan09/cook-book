@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const MealItems = ({ meals }) => {
+const MealItems = ({ match }) => {
+  const [meals, setMeals] = useState("");
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    fetchMeal(setMeals);
+    //    eslint-disable-next-line
+  }, [query]);
+
+  const fetchMeal = async () => {
+    setIsLoading(true);
+    await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${match.params.id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.meals);
+        setMeals(data.meals);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  if (isLoading) return <h1>Loading...</h1>;
+
   return (
     <Container>
       {meals &&
