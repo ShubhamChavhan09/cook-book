@@ -16,7 +16,7 @@ body{
 }
 
 .nav-menu {
-  background-color: rgb(0,0,0,0.9);
+  background-color:#576574;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -30,7 +30,6 @@ body{
 
 .nav-menu.active {
   left: 0;
-  
 }
 `;
 
