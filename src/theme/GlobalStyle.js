@@ -20,8 +20,7 @@ body{
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 6px 30px;
   position: fixed;
   top: 0;
   left: -100%;
@@ -36,9 +35,8 @@ body{
 export default GlobalStyle;
 
 export const lightTheme = {
-  // body: "linear-gradient(to right, #EAEDE5 , #FFFFFF)",
-  body: "linear-gradient(to right  , #dfe4ea, #f5f6fa, #dfe4ea)",
-  // body: "#002A27",
+  // body: "linear-gradient(to right,  #F9FAFB ,#F8FAFA,  #F9FAFB)",
+  body: "#FFFFFF;",
   text: "#0D0D0D",
   nav: "background: linear-gradient(to bottom, #1e272e, #ecf0f1);",
 };
