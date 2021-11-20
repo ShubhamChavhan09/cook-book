@@ -13,7 +13,7 @@ const Navigation = ({ theme, toggleTheme }) => {
     <Nav>
       <SideBar>
         <div>
-          <FaBars onClick={showSidebar} />
+          <FaBars style={{ color: "#888" }} onClick={showSidebar} />
         </div>
 
         {/* styling in GlobalStyle */}
@@ -119,12 +119,14 @@ const SideBar = styled.div`
   z-index: 1;
   display: none;
   ul {
+    width: 100%;
     padding: 0;
   }
   li {
     list-style-type: none;
     font-size: 1.1rem;
     margin: 40px 0;
+    text-align: center;
   }
 
   @media (max-width: 800px) {
