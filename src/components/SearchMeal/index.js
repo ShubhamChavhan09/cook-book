@@ -31,18 +31,22 @@ const Container = styled.div`
   text-align: center;
 `;
 const Form = styled.form`
-  width: 450px;
+  width: 55%;
   margin: 0 auto;
   position: relative;
 
-  @media (max-width: 800px) {
-    width: 300px;
+  @media (max-width: 768) {
+    width: 80%;
+  }
+
+  @media (max-width: 414px) {
+    width: 90%;
   }
 `;
 
 const Input = styled.input`
   width: 100%;
-  height: 40px;
+  height: 50px;
   padding: 0 4rem;
   outline: none;
   font-size: 1rem;
@@ -68,35 +72,13 @@ const Input = styled.input`
 
 const Icon = styled.i`
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: 20px;
   font-size: 20px;
   color: #333;
 
   @media (max-width: 800px) {
-    top: 13px;
+    top: 18px;
     font-size: 15px;
-  }
-`;
-
-const Click = styled.button`
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  height: 30px;
-  width: 100px;
-  font-size: 0.85rem;
-  cursor: pointer;
-  background: #ff9f1a;
-  border: none;
-  outline: none;
-  color: #333;
-  letter-spacing: 2px;
-  font-weight: 500;
-  border-radius: 8px;
-
-  @media (max-width: 800px) {
-    font-size: 0.75rem;
-    width: 80px;
   }
 `;
