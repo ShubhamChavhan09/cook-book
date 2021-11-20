@@ -11,7 +11,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background: ${({ theme }) => theme.body};
     color:${({ theme }) => theme.text};
-    width: 100vw;
+    max-width: 100vw;
     transition: all 0.2s linear;
 }
 
@@ -35,8 +35,8 @@ body{
 export default GlobalStyle;
 
 export const lightTheme = {
-  // body: "linear-gradient(to right,  #F9FAFB ,#F8FAFA,  #F9FAFB)",
-  body: "#FFFFFF;",
+  body: "linear-gradient(to right,  #F9FAFB ,#F8FAFA,  #F9FAFB)",
+  // body: "#FFFFFF;",
   text: "#0D0D0D",
   nav: "background: linear-gradient(to bottom, #1e272e, #ecf0f1);",
 };
