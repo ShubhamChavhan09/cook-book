@@ -29,6 +29,7 @@ export default SearchMeal;
 
 const Container = styled.div`
   text-align: center;
+  width: 100%;
 `;
 const Form = styled.form`
   width: 55%;
