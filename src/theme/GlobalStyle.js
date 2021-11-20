@@ -39,6 +39,7 @@ export const lightTheme = {
   // body: "#FFFFFF;",
   text: "#0D0D0D",
   nav: "background: linear-gradient(to bottom, #1e272e, #ecf0f1);",
+  border: "#dcdde1",
 };
 
 export const darkTheme = {
@@ -46,6 +47,7 @@ export const darkTheme = {
   // body: "#1A191B",
   text: "#f5f5f5",
   nav: "background: linear-gradient(to bottom, #ecf0f1, #1e272e);",
+  border: "#2d3436",
 };
 
 // 1A191B
