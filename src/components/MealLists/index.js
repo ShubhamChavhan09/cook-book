@@ -61,7 +61,7 @@ const Card = styled.div`
   }
 
   @media (max-width: 414px) {
-    width: 11rem;
+    width: 10.5rem;
   }
   @media (max-width: 375px) {
     width: 9.5rem;
@@ -88,7 +88,7 @@ const Img = styled.img`
     width: 12rem;
   }
   @media (max-width: 414px) {
-    width: 9rem;
+    width: 8.5rem;
   }
   @media (max-width: 375px) {
     width: 7.5rem;
