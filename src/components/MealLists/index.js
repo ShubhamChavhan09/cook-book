@@ -50,10 +50,11 @@ const Card = styled.div`
   transition: all 0.3s ease-in-out;
   border-radius: 15px;
   text-align: left;
+  border: ${({ theme }) => `1px solid ${theme.border}`};
 
   :hover {
-    box-shadow: 0 0 1px;
     transform: scale(1.1);
+    box-shadow: 0 0 1px;
   }
   @media (max-width: 768px) {
     width: 14rem;
