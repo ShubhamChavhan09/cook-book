@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import MealLists from "../MealLists";
+import SearchMeal from "../SearchMeal";
 
 const MealItems = () => {
   const [meals, setMeals] = useState("");
@@ -10,8 +11,8 @@ const MealItems = () => {
 
   useEffect(() => {
     fetchMeal();
-    //    eslint-disable-next-line
-  }, []);
+    // eslint-disable-next-line
+  }, [params.id]);
 
   const fetchMeal = async () => {
     setIsLoading(true);
@@ -33,22 +34,11 @@ const MealItems = () => {
 
   return (
     <>
+      <SearchMeal />
       {meals ? (
-        // <Container>
-        //   {meals &&
-        //     Object.values(meals).map((meal, index) => (
-        //       <Card key={index}>
-        //         <List to={`${meal.strMeal}/${meal.idMeal}`}>
-        //           <img src={meal.strMealThumb} alt={meal.strMeal} />
-        //           <h4>{meal.strMeal}</h4>
-        //         </List>
-        //       </Card>
-        //     ))}
-        // </Container>
-
         <MealLists meals={meals} />
       ) : (
-        <h2>No results for {params.id}</h2>
+        <p style={{ fontSize: "1.5rem" }}>No results for '{params.id}'</p>
       )}
     </>
   );
