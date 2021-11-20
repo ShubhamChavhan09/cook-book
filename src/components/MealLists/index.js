@@ -61,10 +61,10 @@ const Card = styled.div`
   }
 
   @media (max-width: 414px) {
-    width: 10.5rem;
+    width: 11rem;
   }
   @media (max-width: 375px) {
-    width: 10rem;
+    width: 9.5rem;
   }
 `;
 
@@ -75,7 +75,7 @@ const List = styled(Link)`
   p {
     font-size: 1rem;
     @media (max-width: 414px) {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
   }
 `;
@@ -88,9 +88,9 @@ const Img = styled.img`
     width: 12rem;
   }
   @media (max-width: 414px) {
-    width: 8.5rem;
+    width: 9rem;
   }
   @media (max-width: 375px) {
-    width: 8rem;
+    width: 7.5rem;
   }
 `;
