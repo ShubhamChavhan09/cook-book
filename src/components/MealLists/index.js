@@ -63,7 +63,7 @@ const Card = styled.div`
   @media (max-width: 414px) {
     width: 10.5rem;
   }
-  @media (max-width: 360px) {
+  @media (max-width: 375px) {
     width: 9rem;
   }
 `;
@@ -90,7 +90,7 @@ const Img = styled.img`
   @media (max-width: 414px) {
     width: 8.5rem;
   }
-  @media (max-width: 360px) {
+  @media (max-width: 375px) {
     width: 7rem;
   }
 `;
