@@ -37,9 +37,7 @@ const Home = () => {
       </SideBar>
 
       <Flex>
-        <h2 style={{ fontSize: "3rem", fontWeight: "400" }}>
-          Discover the best food recipe.
-        </h2>
+        <h2>Discover the best food recipe.</h2>
         <SearchMeal />
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -52,7 +50,7 @@ const Home = () => {
 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
-            fill="CurrentColor"
+            fill="currentColor"
             fillOpacity="1"
             d="M0,64L120,96C240,128,480,192,720,186.7C960,181,1200,107,1320,69.3L1440,32L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
           ></path>
@@ -86,9 +84,12 @@ const Flex = styled.div`
 h2{
   margin-top: 150px;
 color: #ffffff;
+font-size: 3rem;
+font-weight: 400;
 
 @media (max-width: 414px){
-  margin-top: 100px;
+  margin-top: 12rem;
+  font-size: 2rem;
 }
 
 }

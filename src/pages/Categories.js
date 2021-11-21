@@ -75,42 +75,59 @@ export default Categories;
 // `;
 
 const LinkItem = styled(Link)`
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: left;
   text-decoration: none;
   margin: 0 auto;
   border-radius: 10px;
+  border: ${({ theme }) => `1px solid ${theme.border}`};
   color: ${({ theme }) => theme.text};
   p {
     margin: 0 0 0 15px;
+
+    @media (max-width: 414px) {
+      font-size: 0.9rem;
+    }
   }
-  :hover > div {
+  :hover {
     // transform: scale(1.1);
     box-shadow: 0 0 4px;
-
     transition: all 0.3s ease;
   }
 `;
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  // padding: 4rem 0;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 414px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
 const Card = styled.div`
-  border: ${({ theme }) => `1px solid ${theme.border}`};
   // box-shadow: 0 0 4px;
-  border-radius: 20px;
-  width: 296px;
-  height: 185px;
+  border-radius: 8px;
+  width: 12rem;
+  height: auto;
   overflow: hidden;
 
   img {
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 14rem;
+  }
+  @media (max-width: 414px) {
+    width: 10.5rem;
+  }
+  @media (max-width: 375px) {
+    width: 9rem;
   }
 `;
