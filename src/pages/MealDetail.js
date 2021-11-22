@@ -56,11 +56,24 @@ const MealDetail = () => {
         <Left>
           <img src={info.strMealThumb} alt={info.strMeal} />
         </Left>
+
         <Wrapper>
-          <h3>
-            {info.strMeal} <FavouriteButton meals={info} />
-          </h3>
-          <p>{info.strInstructions}</p>
+          <Up>
+            <h3>
+              {info.strMeal} <FavouriteButton meals={info} />
+            </h3>
+            <p>{info.strInstructions}</p>
+          </Up>
+          <FlexRow>
+            {/* <section> */}
+            <h4>INGREDIENTS : {ingredients.length}</h4>
+            {ingredients?.map((item, index) => (
+              <Items key={index}>
+                <strong>{item.ingredient} </strong> -<em> {item.quantity}</em>
+              </Items>
+            ))}
+            {/* </section> */}
+          </FlexRow>
           <Button>
             {info.strSource === "" ? null : (
               <Click>
@@ -82,17 +95,6 @@ const MealDetail = () => {
             )}
           </Button>
         </Wrapper>
-
-        <FlexRow>
-          <section>
-            <h4>INGREDIENTS : {ingredients.length}</h4>
-            {ingredients?.map((item, index) => (
-              <Items key={index}>
-                <strong>{item.ingredient} </strong> - <em> {item.quantity}</em>
-              </Items>
-            ))}
-          </section>
-        </FlexRow>
       </Container>
     </>
   );
@@ -101,78 +103,44 @@ const MealDetail = () => {
 export default MealDetail;
 
 const Container = styled.div`
-  padding: 40px 0;
-  min-height: 90vh;
-  display: grid;
-  font-size: 13px;
-  grid-template-columns: 2fr 3fr 1fr;
+  padding: 20px 0;
+  min-height: 80vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  
+  position: relative;
+ 
 
   h3 {
-    font-size: 2.2rem;
-    letter-spacing: 1px;
+    // font-size: 2.2rem;
+    // letter-spacing: 1px;
 
-    @media (max-width: 500px) {
-      font-size: 3rem;
-    }
   }
-
-  @media (max-width: 800px) {
-    grid-template-columns: 1fr;
-  
-  }
-
-  img {
-    width: 80%;
-    box-shadow: 0 0 10px 5px;
-
-    @media (max-width: 700px) {
-      width: 100%;
-    }
-  }
-  
-  }
-`;
-
-const Items = styled.div`
-  display: flex;
-  border: 1px solid #ff9f1a;
-  border-radius: 10px;
-  padding: 3px 10px;
-  margin: 5px;
-  letter-spacing: 1px;
-  font-size: 11px;
-
-  @media (max-width: 800px) {
-    font-size: 10px;
   }
 `;
 
 const Wrapper = styled.div`
-  min-height: 60vh;
+  align-self: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-
-  @media (max-width: 800px) {
-    padding: 0;
-  }
-
-  h2 {
+  align-items: stretch;
+  z-index: 1;
+  background: ${({ theme }) => theme.body};
+  width: 60%;
+  min-height: 80vh;
+  padding: 0 2rem;
+  h3 {
     margin: 0;
-    font-weight: 530;
   }
   p {
     font-style: italic;
     color: #636e72;
     margin: 30px 0;
     font-size: 0.9rem;
-
-    @media (max-width: 500px) {
-      font-size: 11px;
-      margin: 10px 0;
-    }
-
+  }
 `;
 const Click = styled.button`
   min-height: 30px;
@@ -195,17 +163,23 @@ const Click = styled.button`
 
 const Left = styled.div`
   min-height: 40vh;
+  width: 60%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 20px;
-`;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: -1;
 
-const FlexRow = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  img {
+    width: 100%;
+    height: 100%;
+    // box-shadow: 0 0 10px 5px;
+  }
 `;
 
 const Button = styled.div`
@@ -213,3 +187,25 @@ const Button = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+const Items = styled.div`
+  display: flex;
+  border: 1px solid #ff9f1a;
+  border-radius: 10px;
+  padding: 3px 10px;
+  margin: 5px;
+  letter-spacing: 1px;
+  font-size: 11px;
+`;
+const FlexRow = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  h4 {
+    margin: 0;
+  }
+`;
+
+const Up = styled.div``;
