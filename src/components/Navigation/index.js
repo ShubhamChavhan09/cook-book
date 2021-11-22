@@ -70,7 +70,8 @@ const MenuLink = styled(NavLink)`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #888;
+  // color: #e15f41;
+  color: #55efc4;
   font-size: 0.9rem;
   position: relative;
   // text-shadow: 3px 3px 20px #ecf0f1, -2px 1px 30px #ffffff;
@@ -127,6 +128,10 @@ const SideBar = styled.div`
     font-size: 1.1rem;
     margin: 40px 0;
     text-align: center;
+
+    @media (max-width: 414px) {
+      font-size: 0.9rem;
+    }
   }
 
   @media (max-width: 800px) {

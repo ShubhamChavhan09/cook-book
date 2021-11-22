@@ -36,18 +36,19 @@ export default GlobalStyle;
 
 export const lightTheme = {
   body: "linear-gradient(to right,  #F9FAFB ,#F8FAFA,  #F9FAFB)",
-  // body: "#FFFFFF;",
   text: "#0D0D0D",
   nav: "background: linear-gradient(to bottom, #1e272e, #ecf0f1);",
   border: "#dcdde1",
+  links:''
 };
 
 export const darkTheme = {
   body: "linear-gradient(to right , #101010 , #2F2E33, #101010)",
-  // body: "#1A191B",
   text: "#f5f5f5",
   nav: "background: linear-gradient(to bottom, #ecf0f1, #1e272e);",
   border: "#2d3436",
+  links:''
+
 };
 
 // 1A191B
