@@ -34,9 +34,6 @@ const AddFavourite = styled.button`
   outline: none;
   border: none;
   border-radius: 50%;
-  font-size: 1.5rem;
-  :hover {
-    background: #dcdde1;
-    transition: all 0.5s ease-in-out;
-  }
+  font-size: 1.6rem;
+  transition: all 0.5s linear;
 `;
