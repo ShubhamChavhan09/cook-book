@@ -53,77 +53,57 @@ const Random = () => {
         <i style={{ margin: " 0 10px" }} className="fas fa-random"></i>
       </Click>
       <Container>
-        <Left>
-          <img src={info.strMealThumb} alt={info.strMeal} />
-        </Left>
-        <Wrapper>
-          <h3>
+        <Up>
+          <p>
             {info.strMeal} <FavouriteButton meals={info} />
-          </h3>
-          <p>{info.strInstructions}</p>
+          </p>
+        </Up>
+        <Main>
+          <Left>
+            <img src={info.strMealThumb} alt={info.strMeal} />
+          </Left>
+          <Right>
+            <Bottom>
+              <p>
+                <strong
+                  style={{
+                    marginRight: "1rem",
+                  }}
+                >
+                  Recipe:
+                </strong>
+                {info.strInstructions}
+              </p>
+            </Bottom>
+          </Right>
+        </Main>
+        <Top>
+          <p>Ingredients : </p>
+          {ingredients?.map((item, index) => (
+            <Items key={index}>
+              <strong>{item.ingredient} </strong> -<em> {item.quantity}</em>
+            </Items>
+          ))}
           <Button>
-            {info.strSource === "" ? null : (
-              <Click>
-                <a href={info.strSource} target="_blank" rel="noreferrer">
-                  Source Page
-                </a>
-              </Click>
-            )}
             {info.strYoutube === "" ? null : (
               <Click>
                 <a href={info.strYoutube} target="_blank" rel="noreferrer">
-                  Watch on
                   <i
-                    style={{ fontSize: "1rem", color: "#d63031" }}
+                    style={{ fontSize: "1.5rem", color: "#d63031" }}
                     className="fab fa-youtube"
                   ></i>
                 </a>
               </Click>
             )}
           </Button>
-        </Wrapper>
-
-        <FlexRow>
-          <section>
-            <h4>INGREDIENTS : {ingredients.length}</h4>
-            {ingredients?.map((item, index) => (
-              <Items key={index}>
-                <strong>{item.ingredient} </strong> - <em> {item.quantity}</em>
-              </Items>
-            ))}
-          </section>
-        </FlexRow>
-        {/* <div>
-        <Left>
-          <img src={info.strMealThumb} alt={info.strMeal} />
-        </Left>
-        <Right>
-          <h1>{info.strMeal}</h1>
-          <FavouriteButton meals={info} />
-          <Wrapper>
-            {ingredients?.map((item, index) => (
-              <Items key={index}>
-                <strong>{item.ingredient} </strong> - <em> {item.quantity}</em>
-              </Items>
-            ))}
-          </Wrapper>
-        </Right>
-      </div>
-      <p>{info.strInstructions}</p>
-      {info.strSource === "" ? null : (
-        <Click>
-          <a href={info.strSource} target="_blank" rel="noreferrer">
+        </Top>
+        {/* {info.strSource === "" ? null : (
+            <Click>
+            <a href={info.strSource} target="_blank" rel="noreferrer">
             Source Page
-          </a>
-        </Click>
-      )}
-      {info.strYoutube === "" ? null : (
-        <Click>
-          <a href={info.strYoutube} target="_blank" rel="noreferrer">
-            Watch video on Youtube
-          </a>
-        </Click>
-      )} */}
+            </a>
+            </Click>
+          )} */}
       </Container>
     </>
   );
@@ -131,216 +111,161 @@ const Random = () => {
 
 export default Random;
 
-// const Container = styled.div`
-// display flex;
-// justify-content: center;
-// align-items: center;
-// flex-direction: column;
-// font-size: 15px;
-// max-width: 80%;
-// margin: 0 auto;
-// padding : 40px 0;
-// @media (max-width: 800px) {
-//   max-width: 90%;
-// }
-
-// img{
-//   width:400px;
-//   border-radius: 10px;
-
-//   @media (max-width: 800px) {
-//     width: 95%
-//   }
-// }
-// p{
-//   margin: 30px 0;
-
-//   @media (max-width: 800px) {
-//     font-size: 15px;
-//   }
-// }
-
-// &> div {
-//   text-align: center;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   @media (max-width: 800px) {
-//     flex-direction: column;
-//   }
-
-// }
-// `;
-
-// const Items = styled.div`
-//   display: flex;
-//   border: 1px solid #ff9f1a;
-//   border-radius: 10px;
-//   padding: 3px 10px;
-//   margin: 5px;
-//   letter-spacing: 1px;
-//   font-size: 14px;
-
-//   @media (max-width: 800px) {
-//     font-size: 12px;
-//   }
-// `;
-
-// const Click = styled.button`
-//   background: #ff9f1a;
-//   min-height: 30px;
-//   min-width: 100px;
-//   font-size: 0.85rem;
-//   cursor: pointer;
-//   border: none;
-//   outline: none;
-//   font-weight: 600;
-//   border-radius: 8px;
-//   padding: 5px 10px;
-//   margin: 10px 0;
-
-//   a {
-//     text-decoration: none;
-//     color: #333;
-//   }
-
-//   &: hover {
-//     transform: scale(0.99);
-//   }
-// `;
-
-// const Wrapper = styled.div`
-//   max-width: 800px;
-//   display: flex;
-//   flex-wrap: wrap;
-// `;
-
-// const Left = styled.div``;
-
-// const Right = styled.div`
-//   padding: 0 20px;
-
-//   @media (max-width: 800px) {
-//     padding: 0;
-//   }
-// `;
-
 const Container = styled.div`
-  padding: 40px 0;
-  min-height: 90vh;
-  display: grid;
-  font-size: 13px;
-  grid-template-columns: 2fr 3fr 1fr;
+  height: auto;
+  margin: 0 auto;
+`;
 
-  h3 {
-    font-size: 2.2rem;
-    letter-spacing: 1px;
-  }
+const Main = styled.div`
+  // border: 2px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 68vh;
+  // margin-top: 1.5rem;
 
-  @media (max-width: 800px) {
-    grid-template-columns: 1fr;
-    font-size: 11px;
+  @media (max-width: 414px) {
+    padding: 0rem;
+    flex-direction: column;
   }
+`;
+
+const Left = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  margin: 1.5rem 0;
 
   img {
-    width: 80%;
-    box-shadow: 0 0 10px 5px;
+    max-width: 15rem;
+    border-radius: 10px;
+    outline: 2px solid ${({ theme }) => theme.text};
+    outline-offset: -10px;
 
-    @media (max-width: 800px) {
-      width: 100%;
+    @media (max-width: 414px) {
+      width: 13rem;
     }
   }
+`;
+
+const Right = styled.div`
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  min-height: 100%;
+  // background: #dcdde1;
+  padding: 1rem 0 2rem 3rem;
+
+  @media (max-width: 414px) {
+    padding: 0;
+  }
+
+  // p {
+  //   font-size: 1rem;
+  // }
+
+  //
+`;
+
+const Bottom = styled.div`
   p {
-    margin: 30px 0;
-    @media (max-width: 800px) {
-      font-size: 12px;
+    font-size: 0.98rem;
+    line-height: 1.4;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: left;
+    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.border};
+    // background: #2f4858;
+
+    @media (max-width: 414px) {
+      font-size: 0.9rem;
+      line-height: normal;
+      padding: 1.5rem;
     }
+  }
+`;
+
+const Up = styled.div`
+  // background: #fab1a0;
+  background: ${({ theme }) => theme.border};
+  // background: #f3eed9;
+  border-radius: 10px;
+  padding: 1rem 0;
+  min-height: 5rem;
+  margin: 0 auto;
+  p {
+    margin: 0;
+    font-size: 1.8rem;
+
+    @media (max-width: 414px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 414px) {
+    padding: 0.8rem 0;
+    `;
+const Top = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  p {
+    font-size: 0.9rem;
+    margin: 0;
   }
 `;
 
 const Items = styled.div`
   display: flex;
-  border: 1px solid #ff9f1a;
+  // border: 1px solid #ff9f1a;
+  border: 1px solid ${({ theme }) => theme.nav};
   border-radius: 10px;
   padding: 3px 10px;
   margin: 5px;
-  letter-spacing: 1px;
-  font-size: 11px;
+  // letter-spacing: 1px;
+  font-size: 0.7rem;
 
-  @media (max-width: 800px) {
-    font-size: 12px;
-  }
-`;
-
-const Wrapper = styled.div`
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: 800px) {
-    padding: 0;
-  }
-
-  h2 {
+  em,
+  strong {
+    font-size: 0.8rem;
     margin: 0;
-    font-weight: 530;
-  }
-  p {
-    font-style: italic;
-    color: #636e72;
-    margin: 30px 0;
-    font-size: 0.9rem;
 
-    @media (max-width: 500px) {
-      font-size: 11px;
-      margin: 10px 0;
+    @media (max-width: 414px) {
+      font-size: 0.7rem;
     }
-
-`;
-const Click = styled.button`
-  min-height: 30px;
-  min-width: 100px;
-  font-size: 0.85rem;
-  cursor: pointer;
-  background: #ff9f1a;
-  border: none;
-  outline: none;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 5px 10px;
-  margin: 10px 0;
-
-  a {
-    text-decoration: none;
-    color: #333;
   }
-`;
-
-const Left = styled.div`
-  min-height: 60vh;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-
-  h1 {
-    margin: 0;
-  }
-`;
-
-const FlexRow = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Button = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+`;
+
+const Click = styled.button`
+  min-height: 30px;
+  min-width: 30px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.text};
+  outline: 1px solid ${({ theme }) => theme.text};
+  outline-offset: 2px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin: 1rem 0;
+
+  a {
+    text-decoration: none;
+    color: #333;
+  }
 `;

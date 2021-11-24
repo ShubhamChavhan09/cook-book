@@ -8,21 +8,9 @@ const Favourites = () => {
   return (
     <>
       {favourites.length ? (
-        // <Container>
-        //   {favourites &&
-        //     Object.values(favourites).map((meal, index) => (
-        //       <Card key={index}>
-        //         <List to={`${meal.strMeal}/${meal.idMeal}`}>
-        //           <img src={meal.strMealThumb} alt={meal.strMeal} />
-        //           <h4>{meal.strMeal}</h4>
-        //         </List>
-        //       </Card>
-        //     ))}
-        // </Container>
-
         <MealLists meals={favourites} />
       ) : (
-        <div>No Favourites </div>
+        <p>No Favourites</p>
       )}
     </>
   );
