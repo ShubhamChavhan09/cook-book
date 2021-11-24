@@ -78,7 +78,7 @@ const LinkItem = styled(Link)`
   font-size: 1rem;
   text-align: left;
   text-decoration: none;
-  margin: 0 auto;
+  margin: 1rem;
   border-radius: 10px;
   border: ${({ theme }) => `1px solid ${theme.border}`};
   color: ${({ theme }) => theme.text};
@@ -94,25 +94,37 @@ const LinkItem = styled(Link)`
     box-shadow: 0 0 4px;
     transition: all 0.3s ease;
   }
+
+  @media (max-width: 414px) {
+    margin: 0.4rem;
+  }
+  @media (max-width: 768px) {
+    margin: 0.4rem;
+  }
 `;
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 30px;
+  // display: grid;
+  // grid-template-columns: repeat(5, 1fr);
+  // gap: 30px;
   // padding: 4rem 0;
 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
   }
   @media (max-width: 414px) {
-    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
   }
 `;
 
 const Card = styled.div`
   // box-shadow: 0 0 4px;
   border-radius: 8px;
-  width: 12rem;
+  width: 13rem;
   height: auto;
   overflow: hidden;
 
@@ -122,7 +134,10 @@ const Card = styled.div`
   }
 
   @media (max-width: 1024px) {
-    width: 14rem;
+    width: 16rem;
+  }
+  @media (max-width: 768px) {
+    width: 10rem;
   }
   @media (max-width: 414px) {
     width: 10.5rem;
