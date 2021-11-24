@@ -21,16 +21,24 @@ const Navigation = ({ theme, toggleTheme }) => {
           <ul onClick={showSidebar}>
             <AiOutlineClose />
             <li>
-              <ListItem to="/">Home</ListItem>
+              <ListItem exact to="/">
+                Home
+              </ListItem>
             </li>
             <li>
-              <ListItem to="/categories">Categories</ListItem>
+              <ListItem exact to="/categories">
+                Categories
+              </ListItem>
             </li>
             <li>
-              <ListItem to="/favourites">Favourites</ListItem>
+              <ListItem exact to="/favourites">
+                Favourites
+              </ListItem>
             </li>
             <li>
-              <ListItem to="/randomMeal">Random</ListItem>
+              <ListItem exact to="/randomMeal">
+                Random
+              </ListItem>
             </li>
           </ul>
         </nav>
@@ -48,7 +56,7 @@ const Navigation = ({ theme, toggleTheme }) => {
         <MenuLink to="/randomMeal">RANDOM</MenuLink>
       </Right>
       <Left>
-        Cook Book
+        <h1>Cook Book</h1>
         <Toggle theme={theme} toggleTheme={toggleTheme} />
       </Left>
     </Nav>
@@ -58,11 +66,11 @@ const Navigation = ({ theme, toggleTheme }) => {
 export default Navigation;
 
 const Nav = styled.nav`
-  padding: 0 2rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // background: linear-gradient(to right, #1e272e, #ecf0f1);
+  margin-bottom: 1.5rem;
 `;
 
 const MenuLink = styled(NavLink)`
@@ -71,10 +79,8 @@ const MenuLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   // color: #e15f41;
-  color: #55efc4;
-  font-size: 0.9rem;
-  position: relative;
-  // text-shadow: 3px 3px 20px #ecf0f1, -2px 1px 30px #ffffff;
+  color: ${({ theme }) => theme.nav};
+  font-size: 0.92rem;
 
   &::after {
     content: "";
@@ -94,6 +100,7 @@ const MenuLink = styled(NavLink)`
   }
   &.active {
     font-weight: bold;
+    border-bottom: 1px solid;
   }
 `;
 
@@ -102,6 +109,19 @@ const Left = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Ruthie", cursive;
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    // color: #ff7675;
+    color: ${({ theme }) => theme.nav};
+    border-bottom: 4px double;
+
+    @media (max-width: 414px) {
+      font-size: 1.9rem;
+    }
+  }
 `;
 
 const Right = styled.div`
@@ -122,12 +142,17 @@ const SideBar = styled.div`
   ul {
     width: 100%;
     padding: 0;
+    text-align: left;
   }
   li {
     list-style-type: none;
     font-size: 1.1rem;
     margin: 40px 0;
     text-align: center;
+
+    .active {
+      border-bottom: 1px solid;
+    }
 
     @media (max-width: 414px) {
       font-size: 0.9rem;
