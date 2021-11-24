@@ -38,7 +38,4 @@ const Routes = () => {
 
 export default Routes;
 
-const Box = styled.div`
-  padding: 20px;
-  text-align: center;
-`;
+const Box = styled.div``;
