@@ -15,7 +15,7 @@ const SearchMeal = () => {
     <Container>
       <Form onSubmit={handleSubmit}>
         <Input
-          placeholder="Search for a dish"
+          placeholder="Search for a dish..."
           type="text"
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -30,6 +30,10 @@ export default SearchMeal;
 const Container = styled.div`
   text-align: center;
   width: 100%;
+  margin: 2rem 0;
+  @media (max-width: 414px) {
+    margin: 1rem 0;
+  }
 `;
 const Form = styled.form`
   width: 55%;
@@ -47,11 +51,13 @@ const Form = styled.form`
 
 const Input = styled.input`
   width: 100%;
-  height: 50px;
+  height: 3rem;
   padding: 0 4rem;
   outline: none;
   font-size: 1rem;
   border-radius: 8px;
+  letter-spacing: 2px;
+  transition: all 1s ease;
 
   &:hover {
     box-shadow: 0 0 5px #ff9f1a;
@@ -60,14 +66,13 @@ const Input = styled.input`
   }
 
   &:focus {
-    box-shadow: 0 0 15px #ff9f1a;
     outline: none;
-    border: 1px solid #ff9f1a;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 0 4rem;
+    height: 2.5rem;
   }
 `;
 
@@ -78,8 +83,8 @@ const Icon = styled.i`
   font-size: 20px;
   color: #333;
 
-  @media (max-width: 800px) {
-    top: 18px;
+  @media (max-width: 768px) {
+    top: 14px;
     font-size: 15px;
   }
 `;
