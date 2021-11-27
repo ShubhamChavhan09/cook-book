@@ -7,22 +7,21 @@ const GlobalStyle = createGlobalStyle`
 
 body{
     margin: 0;
-    // font-family: "Inter", sans-serif;
-    font-family: "Roboto", sans-serif;
-    // font-family: 'Roboto Mono', monospace;
-    // font-family: 'Nunito', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
     background: ${({ theme }) => theme.body};
     color:${({ theme }) => theme.text};
     max-width: 100vw;
-    transition: all 0.2s linear;
-    padding: 1rem 15rem 4rem 15rem;
+    transition: all 0.1s ease;
     text-align: center;
     
- h2, h3, h4{
-  font-family: 'Poppins', sans-serif;
+h1, h2, h3, h4{
+font-family: 'Roboto Slab', serif;
+font-weight: 300;
+
+
 }
     @media (max-width: 1024px) {
-      padding: 1rem 5rem;
+      // padding: 1rem 5rem;
     }
 
   @media (max-width: 768px) {
