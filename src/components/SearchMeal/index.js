@@ -57,7 +57,6 @@ const Input = styled.input`
   font-size: 1rem;
   border-radius: 8px;
   letter-spacing: 2px;
-  transition: all 1s ease;
 
   &:hover {
     box-shadow: 0 0 5px #ff9f1a;
