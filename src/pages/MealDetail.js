@@ -191,6 +191,7 @@ const Items = styled.div`
   height: auto;
   // width: 100%;
   display: flex;
+  align-items: center;
   border: 1px solid;
   border-radius: 10px;
   font-size: 0.8rem;
