@@ -27,13 +27,12 @@ export default FavouriteButton;
 
 const AddFavourite = styled.button`
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  // width: 60px;
+  // height: 60px;
   text-align: center;
   background: none;
   outline: none;
   border: none;
   border-radius: 50%;
   font-size: 1.6rem;
-  transition: all 0.5s linear;
 `;
