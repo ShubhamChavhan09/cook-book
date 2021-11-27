@@ -12,9 +12,9 @@ const Navigation = ({ theme, toggleTheme }) => {
   return (
     <Nav>
       <SideBar>
-        <div>
-          <FaBars style={{ color: "#888" }} onClick={showSidebar} />
-        </div>
+        <Icon>
+          <FaBars onClick={showSidebar} />
+        </Icon>
 
         {/* styling in GlobalStyle */}
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
@@ -70,7 +70,14 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  padding: 2rem 6.5rem;
+
+  @media (max-width: 1024px) {
+    padding: 2rem;
+  }
+  @media (max-width: 414px) {
+    padding: 1rem 0;
+  }
 `;
 
 const MenuLink = styled(NavLink)`
@@ -79,28 +86,12 @@ const MenuLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   // color: #e15f41;
-  color: ${({ theme }) => theme.nav};
-  font-size: 0.92rem;
+  color: ${({ theme }) => theme.text};
+  font-size: 0.96rem;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: currentColor;
-    height: 2px;
-    transform: scale(0);
-    transform-origin: left;
-    transition: transform 0.5s ease-in;
-  }
-  &:hover::after {
-    transform: scale(1);
-    transform-origin: left;
-  }
   &.active {
     font-weight: bold;
-    border-bottom: 1px solid;
+    // border-bottom: 1px solid;
   }
 `;
 
@@ -114,18 +105,17 @@ const Left = styled.div`
   h1 {
     font-size: 2.5rem;
     margin: 0;
-    // color: #ff7675;
-    color: ${({ theme }) => theme.nav};
-    border-bottom: 4px double;
+    color: ${({ theme }) => theme.text};
+    font-weight: 400;
 
     @media (max-width: 414px) {
-      font-size: 1.9rem;
+      font-size: 1.5rem;
     }
   }
 `;
 
 const Right = styled.div`
-  @media (max-width: 800px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -146,20 +136,23 @@ const SideBar = styled.div`
   }
   li {
     list-style-type: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin: 40px 0;
     text-align: center;
 
     .active {
       border-bottom: 1px solid;
     }
-
-    @media (max-width: 414px) {
-      font-size: 0.9rem;
-    }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 1024px) {
     display: flex;
   }
+`;
+
+const Icon = styled.div`
+  background: ${({ theme }) => theme.border};
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 10px;
 `;
