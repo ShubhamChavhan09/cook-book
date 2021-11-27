@@ -20,10 +20,10 @@ export default Toggle;
 
 const Button = styled.div`
   margin-left: 30px;
-  padding: 0px 10px;
+  padding: 0px 12px;
   border-radius: 10px;
   background: ${({ theme }) => theme.border};
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 
   @media (max-width: 414px) {
     font-size: 0.75rem;
