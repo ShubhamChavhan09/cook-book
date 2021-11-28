@@ -85,7 +85,6 @@ const Random = () => {
               {info.strYoutube === "" ? null : (
                 <Tooltip title="Youtube" position="bottom-end" animation="fade">
                   <Click>
-                    {" "}
                     <a href={info.strYoutube} target="_blank" rel="noreferrer">
                       <i
                         style={{ fontSize: "2rem", color: "#d63031" }}
