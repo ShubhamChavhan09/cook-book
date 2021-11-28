@@ -15,10 +15,15 @@ const Home = () => {
       </Git>
       <Flex>
         <h2>
-          Discover the best food
-          <strong style={{ color: "#c23616", textShadow: "1px 1px black" }}>
+          Discover the best food{" "}
+          <span
+            style={{
+              color: "#c23616",
+              textShadow: "1px 1px black",
+            }}
+          >
             recipe
-          </strong>
+          </span>
           .
         </h2>
 
