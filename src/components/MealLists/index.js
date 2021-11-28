@@ -51,7 +51,6 @@ const Card = styled(Link)`
   width: 12rem;
   height: auto;
   border-radius: 15px;
-  border: 1px solid green;
 
   margin: 0 auto;
   text-align: left;
