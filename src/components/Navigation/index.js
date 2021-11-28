@@ -69,7 +69,7 @@ const Nav = styled.nav`
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: 2rem 6.5rem;
 
   @media (max-width: 1024px) {
@@ -87,11 +87,14 @@ const MenuLink = styled(NavLink)`
   text-decoration: none;
   // color: #e15f41;
   color: ${({ theme }) => theme.text};
+  padding: 0.2rem;
+  background: ${({ theme }) => theme.body};
   font-size: 0.96rem;
+  border-radius: 5px;
 
   &.active {
     font-weight: bold;
-    // border-bottom: 1px solid;
+    border-bottom: 1px solid;
   }
 `;
 
@@ -103,10 +106,14 @@ const Left = styled.div`
   font-family: "Ruthie", cursive;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     margin: 0;
+    font-family: "Ephesis", cursive;
     color: ${({ theme }) => theme.text};
-    font-weight: 400;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 0.2rem;
+    background: ${({ theme }) => theme.body};
 
     @media (max-width: 414px) {
       font-size: 1.5rem;
