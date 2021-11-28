@@ -56,7 +56,7 @@ const Card = styled(Link)`
   text-align: left;
 
   :hover {
-    outline: ${({ theme }) => `1px solid ${theme.nav}`};
+    outline: 1px solid ${({ theme }) => ` ${theme.text}`};
     // transform: scale(1.1);
     transition: all 0.3s ease;
   }
