@@ -38,4 +38,6 @@ const Routes = () => {
 
 export default Routes;
 
-const Box = styled.div``;
+const Box = styled.div`
+  min-height: 100vh;
+`;
