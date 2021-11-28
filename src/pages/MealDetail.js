@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import FavouriteButton from "../components/FavouriteButton";
 import { useParams } from "react-router";
+import { Tooltip } from "react-tippy";
 
 const MealDetail = () => {
   const params = useParams();
@@ -80,16 +81,19 @@ const MealDetail = () => {
               <h3>Instructions :</h3>
               <p>{info.strInstructions}</p>
             </Inst>
+
             <Button>
               {info.strYoutube === "" ? null : (
-                <Click>
-                  <a href={info.strYoutube} target="_blank" rel="noreferrer">
-                    <i
-                      style={{ fontSize: "2rem", color: "#d63031" }}
-                      className="fab fa-youtube"
-                    ></i>
-                  </a>
-                </Click>
+                <Tooltip title="Youtube" position="bottom-end" animation="fade">
+                  <Click>
+                    <a href={info.strYoutube} target="_blank" rel="noreferrer">
+                      <i
+                        style={{ fontSize: "2rem", color: "#d63031" }}
+                        className="fab fa-youtube"
+                      ></i>
+                    </a>
+                  </Click>{" "}
+                </Tooltip>
               )}
             </Button>
           </Left>
@@ -314,6 +318,8 @@ const Click = styled.button`
   cursor: pointer;
   background: transparent;
   border: none;
+  border-radius: 10px;
+  background: ${({ theme }) => theme.border};
   color: ${({ theme }) => theme.text};
   outline: none;
   font-weight: 600;
