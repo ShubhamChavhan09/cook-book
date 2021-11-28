@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Tooltip } from "react-tippy";
 import styled from "styled-components";
 import FavouriteButton from "../components/FavouriteButton";
 
@@ -82,14 +83,17 @@ const Random = () => {
             </Inst>
             <Button>
               {info.strYoutube === "" ? null : (
-                <Click>
-                  <a href={info.strYoutube} target="_blank" rel="noreferrer">
-                    <i
-                      style={{ fontSize: "2rem", color: "#d63031" }}
-                      className="fab fa-youtube"
-                    ></i>
-                  </a>
-                </Click>
+                <Tooltip title="Youtube" position="bottom-end" animation="fade">
+                  <Click>
+                    {" "}
+                    <a href={info.strYoutube} target="_blank" rel="noreferrer">
+                      <i
+                        style={{ fontSize: "2rem", color: "#d63031" }}
+                        className="fab fa-youtube"
+                      ></i>
+                    </a>
+                  </Click>
+                </Tooltip>
               )}
             </Button>
           </Left>
