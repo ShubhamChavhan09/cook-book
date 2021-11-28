@@ -14,8 +14,16 @@ const Home = () => {
         <FaGithub />
       </Git>
       <Flex>
-        <h2>Discover the best food recipe.</h2>
+        <h2>
+          Discover the best food
+          <strong style={{ color: "#c23616", textShadow: "1px 1px black" }}>
+            recipe
+          </strong>
+          .
+        </h2>
+
         <SearchMeal />
+
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill="white"
@@ -45,8 +53,8 @@ const Flex = styled.div`
   // background-image: url('https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80') ;
   // background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') ;
   // background-image: url('https://images.unsplash.com/photo-1608835291093-394b0c943a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80') ;
-  // background-image: url('https://images.unsplash.com/photo-1592417817038-d13fd7342605?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') ;
-  background-image: url('https://images.unsplash.com/photo-1605522469906-3fe226b356bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80') ;
+  background-image: url('https://images.unsplash.com/photo-1592417817038-d13fd7342605?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') ;
+  // background-image: url('https://images.unsplash.com/photo-1605522469906-3fe226b356bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80') ;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,0.5);
   background-size: cover; 
@@ -68,6 +76,7 @@ const Flex = styled.div`
 
 
 h2{
+ 
   margin-top: 10rem;
  color: #ffffff;
  font-size: 3rem;
@@ -89,6 +98,8 @@ svg{
     bottom: 0;
   }
 }
+
+
 
 `;
 
