@@ -53,15 +53,16 @@ const Input = styled.input`
   width: 100%;
   height: 3rem;
   padding: 0 4rem;
+  border: none;
   outline: none;
   font-size: 1rem;
   border-radius: 8px;
   letter-spacing: 2px;
 
   &:hover {
-    box-shadow: 0 0 5px #ff9f1a;
+    box-shadow: 0 0 8px #c23616;
     outline: none;
-    border: 1px solid #ff9f1a;
+    outline: 1px solid #c23616;
   }
 
   &:focus {
