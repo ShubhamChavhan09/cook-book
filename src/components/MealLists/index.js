@@ -9,13 +9,19 @@ const MealLists = ({ meals }) => {
       <Container>
         {meals &&
           Object.values(meals).map((meal, index) => (
-            <Card key={index}>
-              <List to={`/${meal.strMeal}/${meal.idMeal}`}>
-                <Img src={meal.strMealThumb} alt={meal.strMeal} />
-                <p>{meal.strMeal}</p>
-                <em>
-                  {meal.strArea && meal.strCategory ? `${meal.strArea}` : null}
-                </em>
+            <Card to={`/${meal.strMeal}/${meal.idMeal}`} key={index}>
+              <List>
+                <Img>
+                  <img src={meal.strMealThumb} alt={meal.strMeal} />
+                </Img>
+                <Content>
+                  <h3>{meal.strMeal}</h3>
+                  <em>
+                    {meal.strArea && meal.strCategory
+                      ? `${meal.strArea}`
+                      : null}
+                  </em>
+                </Content>
               </List>
             </Card>
           ))}
@@ -27,67 +33,57 @@ const MealLists = ({ meals }) => {
 export default MealLists;
 
 const Container = styled.div`
-  // border: 2px solid green;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  // padding: 3rem 0;
-
-  @media (max-width: 414px) {
-    padding: 0;
-  }
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 3rem;
 `;
 
-const Card = styled.div`
-  margin: 1rem;
-  // padding: 0.5rem;
-  transition: all 0.3s ease-in-out;
+const Card = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  width: 12rem;
+  height: auto;
   border-radius: 15px;
+
+  margin: 0 auto;
   text-align: left;
-  border: ${({ theme }) => `1px solid ${theme.border}`};
-  width: 11rem;
 
   :hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 1px;
-    // background: ${({ theme }) => ` ${theme.body}`};
-  }
-
-  @media (max-width: 768px) {
-    width: 8rem;
-  }
-  @media (max-width: 414px) {
-    width: 10.9rem;
-    margin: 0.5rem;
-  }
-  @media (max-width: 411px) {
-    width: 10.5rem;
-    margin: 0.5rem;
-  }
-  @media (max-width: 375px) {
-    width: 9rem;
+    outline: ${({ theme }) => `1px solid ${theme.nav}`};
+    // transform: scale(1.1);
+    transition: all 0.3s ease;
   }
 `;
 
-const Img = styled.img`
-  border-radius: 15px;
-  width: 100%;
+const Img = styled.div`
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 12rem;
+  height: 12rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
 `;
 
-const List = styled(Link)`
-  text-decoration: none;
+const List = styled.div`
   color: currentColor;
   width: 17rem;
+`;
 
-  p,
+const Content = styled.div`
+  h3,
   em {
+    padding: 0 1rem;
+    color: ${({ theme }) => ` ${theme.text}`};
+  }
+  h3 {
     font-size: 0.9rem;
-
-    @media (max-width: 414px) {
-      font-size: 0.8rem;
-    }
-    @media (max-width: 768px) {
-      font-size: 0.8rem;
-    }
+    font-weight: 400;
   }
 `;
