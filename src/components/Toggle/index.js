@@ -21,6 +21,7 @@ export default Toggle;
 const Button = styled.div`
   margin-left: 30px;
   padding: 0px 12px;
+  cursor: pointer;
   border-radius: 10px;
   background: ${({ theme }) => theme.border};
   font-size: 0.7rem;
