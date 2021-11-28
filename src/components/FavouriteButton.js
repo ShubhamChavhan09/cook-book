@@ -16,11 +16,21 @@ const FavouriteButton = ({ meals }) => {
       isFavourite={isFavourite}
     >
       {isFavourite ? (
-        <Tooltip title="Remove favorite" position="top-end" animation="fade">
+        <Tooltip
+          title="Remove favorite"
+          position="right"
+          distance="10"
+          animation="fade"
+        >
           <i className="fas fa-heart" style={{ color: "#ff7675" }}></i>
         </Tooltip>
       ) : (
-        <Tooltip title="Set as favorite" position="top-end" animation="fade">
+        <Tooltip
+          title="Set as favorite"
+          position="right"
+          distance="10"
+          animation="fade"
+        >
           <i className="far fa-heart" style={{ color: "#ff7675" }}></i>
         </Tooltip>
       )}
