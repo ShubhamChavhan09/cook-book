@@ -80,18 +80,18 @@ const MealDetail = () => {
               <h3>Instructions :</h3>
               <p>{info.strInstructions}</p>
             </Inst>
-            {/* <Button>
+            <Button>
               {info.strYoutube === "" ? null : (
                 <Click>
                   <a href={info.strYoutube} target="_blank" rel="noreferrer">
                     <i
-                      style={{ fontSize: "1.5rem", color: "#d63031" }}
+                      style={{ fontSize: "2rem", color: "#d63031" }}
                       className="fab fa-youtube"
                     ></i>
                   </a>
                 </Click>
               )}
-            </Button> */}
+            </Button>
           </Left>
         </Main>
 
@@ -236,11 +236,11 @@ const Box = styled.div`
 const Inst = styled.div`
   flex: 1;
   height: auto;
-  width: 65%;
+  width: 75%;
   margin: 0 auto;
   text-align: left;
   font-weight: 300;
-  line-height: 1.75;
+  // line-height: 1.75;
   padding: 2rem 1rem;
   border-radius: 10px;
   text-align: left;
@@ -310,15 +310,13 @@ const Button = styled.div`
 const Click = styled.button`
   min-height: 30px;
   min-width: 30px;
-  font-size: 0.85rem;
+  font-size: 1rem;
   cursor: pointer;
   background: transparent;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: none;
   color: ${({ theme }) => theme.text};
-  outline: 1px solid ${({ theme }) => theme.text};
-  outline-offset: 2px;
+  outline: none;
   font-weight: 600;
-  border-radius: 8px;
   padding: 5px 10px;
   margin: 10px 0;
 
