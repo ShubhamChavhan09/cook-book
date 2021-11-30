@@ -71,7 +71,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: baseline;
   padding: 2rem 6.5rem;
-
+  z-index: 1;
   @media (max-width: 1024px) {
     padding: 2rem;
   }
