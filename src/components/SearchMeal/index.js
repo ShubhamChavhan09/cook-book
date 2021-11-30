@@ -40,7 +40,7 @@ const Form = styled.form`
   width: 55%;
   margin: 0 auto;
   position: relative;
-
+  z-index: 1;
   @media (max-width: 768) {
     width: 80%;
   }
