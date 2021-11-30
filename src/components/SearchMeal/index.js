@@ -17,6 +17,7 @@ const SearchMeal = () => {
         <Input
           placeholder="Search for a dish..."
           type="text"
+          value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
         <Icon className="fas fa-search"></Icon>
