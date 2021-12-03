@@ -67,7 +67,7 @@ const Flex = styled.div`
   background-position: center;
   inset: 0;
   position: absolute;
-  // z-index: -1;
+  z-index: -1;
   display: flex;
   justify-content: center:
   align-items: center;
