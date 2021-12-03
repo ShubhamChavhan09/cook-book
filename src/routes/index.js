@@ -8,7 +8,6 @@ import MealDetail from "../pages/MealDetail";
 import CategoriesItems from "../pages/CategoriesItems";
 import NotFound from "../pages/404";
 import { useFavourites } from "../hooks/useFavourites";
-import styled from "styled-components";
 import MealItems from "../components/MealItems.js";
 
 const Routes = () => {
@@ -20,7 +19,7 @@ const Routes = () => {
   }, []);
 
   return (
-    <Box>
+    <>
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/categories" exact component={Categories} />
@@ -32,12 +31,8 @@ const Routes = () => {
         <Route exact path="/:id" component={MealItems} />
         <Route component={NotFound} />
       </Switch>
-    </Box>
+    </>
   );
 };
 
 export default Routes;
-
-const Box = styled.div`
-  min-height: 100vh;
-`;
