@@ -114,4 +114,10 @@ const Content = styled.div`
       margin: 0.3rem 0;
     }
   }
+
+  em {
+    @media (max-width: 414px) {
+      font-size: 0.9rem;
+    }
+  }
 `;
