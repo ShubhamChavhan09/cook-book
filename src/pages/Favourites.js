@@ -11,7 +11,7 @@ const Favourites = () => {
       {favourites.length ? (
         <MealLists meals={favourites} />
       ) : (
-        <p>No Favourites</p>
+        <p style={{ margin: "0 auto" }}>No Favourites</p>
       )}
     </Container>
   );
