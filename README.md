@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# Cook Book - A Recipe Search App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What does it do?
+
+The app is a simple recipe app, which shows results of the search input and feature to save any recipe as a favorite. Also the app has dark mode.
+
+## What makes it work?
+
+The following technologies/dependencies have been used to create the app:
+
+* React -> Frontend Library
+* react-router-dom -> Enable client side routing
+* styled-components -> CSS-in-JS styling
+* react-icons -> Icon Library
 
 ## Available Scripts
 
