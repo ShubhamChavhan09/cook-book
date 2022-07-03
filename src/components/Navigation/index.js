@@ -87,14 +87,14 @@ const MenuLink = styled(NavLink)`
   text-decoration: none;
   // color: #e15f41;
   color: ${({ theme }) => theme.text};
-  padding: 0.2rem;
+  padding: 0.5rem;
   background: ${({ theme }) => theme.body};
   font-size: 0.96rem;
-  border-radius: 5px;
+  // border-radius: 5px;
 
   &.active {
     font-weight: bold;
-    border-bottom: 1px solid;
+    border: 1px solid;
   }
 `;
 
