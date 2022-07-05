@@ -24,18 +24,6 @@ const CategoriesItems = ({ match }) => {
 
   return (
     <>
-      {/* <MealItems meals={items} /> */}
-      {/* <Container>
-        {items &&
-          Object.values(items).map((meal, index) => (
-            <Card key={index}>
-              <List to={`${meal.strMeal}/${meal.idMeal}`}>
-                <img src={meal.strMealThumb} alt={meal.strMeal} />
-                <h4>{meal.strMeal}</h4>
-              </List>
-            </Card>
-          ))}
-      </Container> */}
       <MealLists meals={items} />
     </>
   );
