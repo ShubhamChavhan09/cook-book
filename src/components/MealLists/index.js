@@ -50,15 +50,15 @@ const Card = styled(Link)`
   display: flex;
   width: 12rem;
   height: auto;
-  border-radius: 15px;
-
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   margin: 0 auto;
   text-align: left;
 
   :hover {
-    outline: 1px solid ${({ theme }) => ` ${theme.text}`};
     // transform: scale(1.1);
     transition: all 0.3s ease;
+    box-shadow: 0 0 10px #ffffff;
   }
 
   @media (max-width: 414px) {
@@ -97,6 +97,9 @@ const Img = styled.div`
 const List = styled.div`
   color: currentColor;
   width: 17rem;
+  outline: 0.5px solid ${({ theme }) => ` ${theme.text}`};
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 `;
 
 const Content = styled.div`
